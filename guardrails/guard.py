@@ -794,7 +794,7 @@ class Guard(Runnable, Generic[OT]):
                     **kwargs,
                 )
             # Otherwise, call the LLM synchronously
-            return self._sync_parse(
+            result = self._sync_parse(
                 llm_output,
                 metadata,
                 llm_api=llm_api,
@@ -805,6 +805,15 @@ class Guard(Runnable, Generic[OT]):
                 *args,
                 **kwargs,
             )
+
+            for key, value in result.validated_output.items():
+                if isinstance(value, list) and not value:
+                    result.validated_output[key] = []
+            
+            return result
+
+        
+
 
         guard_context = contextvars.Context()
         return guard_context.run(
