@@ -812,9 +812,6 @@ class Guard(Runnable, Generic[OT]):
             
             return result
 
-        
-
-
         guard_context = contextvars.Context()
         return guard_context.run(
             __parse,
