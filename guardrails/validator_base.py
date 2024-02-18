@@ -202,7 +202,7 @@ class ValidationResult(BaseModel):
     metadata: Optional[Dict[str, Any]] = None
 
 
-class PassResult(ValidationResult):
+class PassResult(ValidationRe sult):
     outcome: Literal["pass"] = "pass"
 
     class ValueOverrideSentinel:
@@ -210,6 +210,7 @@ class PassResult(ValidationResult):
 
     # should only be used if Validator.override_value_on_pass is True
     value_override: Optional[Any] = Field(default=ValueOverrideSentinel)
+    metadata: Optional[Dict[str, Union[str, int, float]]] = None
 
 
 class FailResult(ValidationResult):
@@ -217,6 +218,7 @@ class FailResult(ValidationResult):
 
     error_message: str
     fix_value: Optional[Any] = None
+    metadata = Optional[Dict[str, Union[str, int, float]]] = None
 
 
 class Validator(Runnable):
