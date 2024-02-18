@@ -202,7 +202,7 @@ class ValidationResult(BaseModel):
     metadata: Optional[Dict[str, Any]] = None
 
 
-class PassResult(ValidationRe sult):
+class PassResult(ValidationResult):
     outcome: Literal["pass"] = "pass"
 
     class ValueOverrideSentinel:
