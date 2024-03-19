@@ -598,18 +598,18 @@ Coming soon!
 - Unsupported tags and attributes will still be included in the output schema definition that is appended to the prompt.
 - This behavior can be changed by setting the `strict` attribute of the `<output>` element to `true`. If `strict` is set to `true`, Guardrails will throw an error if you add an unsupported type, attribute or quality criteria.
 
-    ```xml
-    <rail version="0.1">
-        <output strict="true">
-            <unsupported-type ... />
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output strict="true">
+        <unsupported-type ... />
+    </output>
+</rail>
+```
 
-    This will throw an error:
+This will throw an error:
 
-    ```bash
-    ❌ Error: Unsupported type: unsupported-type
-    ```
+```bash
+Error: Unsupported type: unsupported-type
+```
 
 
