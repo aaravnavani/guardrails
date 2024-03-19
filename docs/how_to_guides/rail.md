@@ -243,51 +243,51 @@ Example:
 
 === "JSON RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <string name="text" description="The generated text" format="two-words" on-fail-two-words="reask"/>
-            <float name="score" description="The score of the generated text" format="min-val: 0" on-fail-min-val="fix"/>
-            <object name="metadata" description="The metadata associated with the generated text">
-                <string name="key_1" description="description of key_1" />
-                ...
-            </object>
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <string name="text" description="The generated text" format="two-words" on-fail-two-words="reask"/>
+        <float name="score" description="The score of the generated text" format="min-val: 0" on-fail-min-val="fix"/>
+        <object name="metadata" description="The metadata associated with the generated text">
+            <string name="key_1" description="description of key_1" />
+            ...
+        </object>
+    </output>
+</rail>
+```
 
 === "Output JSON"
     
-    ```json
-    {
-        "text": "string output",
-        "score": 0.0,
-        "metadata": {
-            "key_1": "string",
-            ...
-        }
+```json
+{
+    "text": "string output",
+    "score": 0.0,
+    "metadata": {
+        "key_1": "string",
+        ...
     }
-    ```
+}
+```
 
 === "String RAIL Spec"
 
 
-    ```xml
-    <rail version="0.1">
-        <output
-            type="string"
-            description="The generated text"
-            format="two-words"
-            on-fail-two-words="reask"
-        />
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output
+        type="string"
+        description="The generated text"
+        format="two-words"
+        on-fail-two-words="reask"
+    />
+</rail>
+```
 
 === "Output String"
     
-    ```
-    string output
-    ```
+```
+string output
+```
 
 ## ⚡ Specifying output structure
 
@@ -297,22 +297,22 @@ You can combine `RAIL` elements to create an arbitrarily complex output structur
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <string name="some_key" ..../>
-            <integer name="some_other_key" ..../>
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <string name="some_key" ..../>
+        <integer name="some_other_key" ..../>
+    </output>
+</rail>
+```
 
 === "Output JSON"
-    ```json
-    {
-        "some_key": "string",
-        "some_other_key": 0
-    }
-    ```
+```json
+{
+    "some_key": "string",
+    "some_other_key": 0
+}
+```
 
 
 ### JSON output with objects
@@ -326,26 +326,26 @@ You can combine `RAIL` elements to create an arbitrarily complex output structur
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <object name="some_object">
-                <string name="some_str_key" description="What should the value for this key represent?" format="two-words; upper-case" />
-                <integer name="some_other_key" description="What should this integer represent?" format="min-val: 0"/>
-            </object>
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <object name="some_object">
+            <string name="some_str_key" description="What should the value for this key represent?" format="two-words; upper-case" />
+            <integer name="some_other_key" description="What should this integer represent?" format="min-val: 0"/>
+        </object>
+    </output>
+</rail>
+```
 
 === "Output JSON"
-    ```json
-    {
-        "some_object": {
-            "some_str_key": "SOME STRING",
-            "some_other_key": 0
-        }
+```json
+{
+    "some_object": {
+        "some_str_key": "SOME STRING",
+        "some_other_key": 0
     }
-    ```
+}
+```
 
 In the above example, `"SOME STRING"` is the value for the `some_str_key` key, and is generated based on the name, description and quality criteria provided by the `<string name="some_str_key" ... />` element.
 
@@ -366,24 +366,24 @@ In the above example, `"SOME STRING"` is the value for the `some_str_key` key, a
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <list name="some_list" format="min-len: 2">
-                <string format="two-words; upper-case" />
-            </list>
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <list name="some_list" format="min-len: 2">
+            <string format="two-words; upper-case" />
+        </list>
+    </output>
+</rail>
+```
 
 === "Output JSON"
-    ```json
-    {
-        "some_list": [
-            "STRING 1", "STRING 2"
-        ]
-    }
-    ```
+```json
+{
+    "some_list": [
+    "STRING 1", "STRING 2"
+    ]
+}
+```
 
 
 !!! note
@@ -398,20 +398,20 @@ All the formatters supported by the `string` element can be used to specify the 
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output
-            type="string" 
-            format="two-words" 
-            on-fail-two-words="reask"
-        />
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output
+        type="string" 
+        format="two-words" 
+        on-fail-two-words="reask"
+    />
+</rail>
+```
 
 === "Output"
-    ```
-    string output
-    ```
+```
+string output
+```
 
 ## `RAIL` Elements
 
@@ -448,21 +448,21 @@ Each element can have attributes that specify additional information about the d
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <string name="some_key" />
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <string name="some_key" />
+    </output>
+</rail>
+```
 
 === "Output JSON"
 
-    ```json
-    {
-        "some_key": "..."
-    }
-    ```
+```json
+{
+    "some_key": "..."
+}
+```
 
 2. `description` attribute that specifies the description of the field. This is similar to a prompt that will be provided to the LLM. It can contain more context to help the LLM generate the correct output.
 3. (Coming soon!) `required` attribute that specifies whether the field is required or not. If the field is required, the LLM will be asked to generate the field until it is generated correctly. If the field is not required, the LLM will not be asked to generate the field if it is not generated correctly.
@@ -473,28 +473,28 @@ Each element can have attributes that specify additional information about the d
 E.g.,
 
 === "RAIL Spec"
-    ```xml
-    <rail version="0.1">
-        <output>
-            <string
-                name="some_key"
-                description="Detailed description of what the value of the key should be"
-                required="true"
-                format="two-words; upper-case"
-                on-fail-two-words="reask"
-                on-fail-upper-case="noop" 
-            />
-        </output>
-    </rail>
-    ```
+```xml
+<rail version="0.1">
+    <output>
+        <string
+            name="some_key"
+            description="Detailed description of what the value of the key should be"
+            required="true"
+            format="two-words; upper-case"
+            on-fail-two-words="reask"
+            on-fail-upper-case="noop" 
+        />
+    </output>
+</rail>
+```
 
 === "Output JSON"
 
-    ```json
-    {
-        "some_key": "SOME STRING"
-    }
-    ```
+```json
+{
+    "some_key": "SOME STRING"
+}
+```
 
 ## Specifying quality criteria
 
@@ -562,28 +562,28 @@ An example of the compiled `output` element:
 
 === "RAIL Spec"
 
-    ```xml
-    <rail version="0.1">
-        <output>
-            <string
-                name="text"
-                description="The generated text"
-                format="two-words; upper-case"
-            />
-        </output>
-    </rail>
-    ```
-
-=== "Compiled XML added to prompt"
-
-    ```xml
+```xml
+<rail version="0.1">
     <output>
         <string
             name="text"
             description="The generated text"
+            format="two-words; upper-case"
         />
     </output>
-    ```
+</rail>
+```
+
+=== "Compiled XML added to prompt"
+
+```xml
+<output>
+    <string
+        name="text"
+        description="The generated text"
+    />
+</output>
+```
 
 
 ### `TypeScript` Compilation
