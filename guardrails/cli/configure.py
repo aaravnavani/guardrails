@@ -5,6 +5,7 @@ from os.path import expanduser
 from typing import Optional
 
 import typer
+import webbrowser
 
 from guardrails.cli.guardrails import guardrails
 from guardrails.cli.logger import LEVELS, logger
@@ -46,6 +47,7 @@ def configure(
     You can find your tokens at https://hub.guardrailsai.com/tokens
     """
         logger.log(level=LEVELS.get("NOTICE"), msg=notice_message)  # type: ignore
+        webbrowser.open('https://hub.guardrailsai.com/tokens')
         if not client_id:
             client_id = typer.prompt("Client ID")
         if not client_secret:
