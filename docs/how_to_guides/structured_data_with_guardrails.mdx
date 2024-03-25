@@ -41,7 +41,7 @@ Below is the syntax for generating structured data with Guardrails AI using `Pyd
     import openai
 
     res = guard(
-        openai.chat.completion.create,
+        openai.chat.completions.create,
         model="gpt-3.5-turbo",
     )
     ```
@@ -61,7 +61,7 @@ Below is the syntax for generating structured data with Guardrails AI using `Pyd
     ```python
     from guardrails import Guard
 
-    guard = Guard.from_s("""
+    guard = Guard.from_rail_string("""
       <rail version="0.1">
         <output>
           <string name="name" />
@@ -77,7 +77,7 @@ Below is the syntax for generating structured data with Guardrails AI using `Pyd
     import openai
 
     res = guard(
-        openai.chat.completion.create,
+        openai.chat.completions.create,
         model="gpt-3.5-turbo",
     )
     ```
