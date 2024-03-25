@@ -38,9 +38,9 @@ guard = gd.Guard.from_rail(...)
 
 # Wrap openai API call
 raw_llm_output, guardrail_output, *rest = guard(
-    openai.ChatCompletion.create,
+    openai.chat.completions.create,
     prompt_params={"prompt_param_1": "value_1", "prompt_param_2": "value_2", ..},
-    system_prompt="You are a helpful assistant...",
+    prompt="You are a helpful assistant...",
     model="gpt-3.5-turbo",
     max_tokens=100,
     temperature=0.0,
