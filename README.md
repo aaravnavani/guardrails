@@ -129,8 +129,8 @@ prompt = """
 guard = Guard.from_pydantic(output_class=Pet, prompt=prompt)
 
 validated_output, *rest = guard(
-    llm_api=openai.completions.create,
-    engine="gpt-3.5-turbo-instruct"
+    llm_api=openai.chat.completions.create,
+    model="gpt-3.5-turbo-instruct"
 )
 
 print(f"{validated_output}")
