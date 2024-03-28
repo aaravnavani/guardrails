@@ -182,7 +182,7 @@ class ValidatorsAttr(pydantic.BaseModel):
         validators, unregistered_validators = cls.get_validators(
             validator_args=validator_args,
             tag=tag,
-            on_fail_handlers=on_fail_handlers,
+            on_fail_handlers=on_fail_handlers, 
             strict=strict,
         )
 
