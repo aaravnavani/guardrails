@@ -28,6 +28,8 @@ class IsProfanityFree(Validator):
     def validate(self, value: Any, metadata: Dict) -> ValidationResult:
         try:
             from profanity_check import predict  # type: ignore
+            from better_profanity import profanity
+
         except ImportError:
             raise ImportError(
                 "`is-profanity-free` validator requires the `alt-profanity-check`"
@@ -35,7 +37,8 @@ class IsProfanityFree(Validator):
             )
 
         prediction = predict([value])
-        if prediction[0] == 1:
+        prediction1 = profanity.contains_profanity(value)
+        if prediction[0] == 1 or prediction1 is True:
             return FailResult(
                 error_message=f"{value} contains profanity. "
                 f"Please return a profanity-free output.",
