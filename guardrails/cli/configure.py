@@ -43,12 +43,14 @@ def get_existing_config() -> dict:
 @guardrails.command()
 def configure(
     token: Optional[str] = typer.Option(
-        help="Your Guardrails Hub auth token.", hide_input=True, default="",
-        prompt="Token (optional) [None]: "
+        help="Your Guardrails Hub auth token.",
+        hide_input=True,
+        default="",
+        prompt="Token (optional) [None]: ",
     ),
     no_metrics: Optional[str] = typer.Option(
         help="Opt out of anonymous metrics collection.",
-        prompt="Disable anonymous metrics reporting? [True/False]: "
+        prompt="Disable anonymous metrics reporting? [True/False]: ",
     ),
 ):
     """Set the global configuration for the Guardrails CLI and Hub."""
